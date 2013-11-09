@@ -70,6 +70,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.2)
     mysql2 (0.3.14)
+    nokogiri (1.5.10)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -139,6 +140,7 @@ DEPENDENCIES
   backburner!
   jquery-rails
   mysql2
+  nokogiri
   pry-debugger
   pry-rails
   puma

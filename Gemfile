@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.1'
 gem 'mysql2'
 gem 'backburner', :git => 'https://github.com/thcrock/backburner.git'
+gem 'nokogiri'
 
 group :assets do
   gem 'therubyracer', platforms: :ruby
