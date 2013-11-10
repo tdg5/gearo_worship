@@ -1,7 +1,12 @@
+Vote for us here!
+https://www.hackerleague.org/hackathons/music-hack-day-boston-2013/hacks/gearo-worship
+
 Gearo Worship
 =============
 
 Artist Gear Database and Acquisition Service
+
+![Mascot Skull](https://dl.dropboxusercontent.com/u/3767393/ajax_loader.gif)
 
 So, you want to run this? I hope you have a debian-based Linux system
 
@@ -14,6 +19,3 @@ So, you want to run this? I hope you have a debian-based Linux system
 7. sudo service beanstalkd start
 8. rake backburner:work
 9. rails server
-
-Vote for us here!
-https://www.hackerleague.org/hackathons/music-hack-day-boston-2013/hacks/gearo-worship
