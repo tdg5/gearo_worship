@@ -21,6 +21,9 @@ class ReverbController < ApplicationController
 		return render :json => [] if still_to_come.count > 0
 		reverb_responses = ReverbResponse.where(request_id: params[:reverb_request_id]).where('response is not null').includes(:instrument)
 		json = reverb_responses.map { |reverb_response| ReverbResponseSerializer.new(reverb_response).as_json }
+		if json == "[]"
+			return render :status => 404
+		end
 		render :json => json
 	end
 
