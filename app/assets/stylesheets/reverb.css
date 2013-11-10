@@ -15,7 +15,8 @@ ul {
 	padding: .5em;
 	font-size: 2em;
 	color: #fff;
-	background-color: #aB5976;
+	/* background-color: #aB5976; */
+	background-color: #444;
 }
 
 .alert a {
