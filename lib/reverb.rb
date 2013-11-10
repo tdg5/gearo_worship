@@ -4,11 +4,18 @@ module Reverb
 		'reverb_requests'
 	end
 
+
+	def self.preprocess(keyword)
+		return keyword[/(.*?)\s?\(/, 1]
+	end
+
+
 	def self.perform(request_id, keyword)
 		conn = Faraday.new(:url => 'https://reverb.com:443')
+		processed_keyword = preprocess(keyword)
 		response = conn.get do |req|
 			req.url '/api/listings.json'
-			req.params['query'] = keyword
+			req.params['query'] = processed_keyword
 			req.headers['X-Auth-Token'] = AUTH_TOKEN
 		end
 		instrument = Instrument.find_by(name: keyword)
