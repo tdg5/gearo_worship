@@ -1,5 +1,5 @@
 class ReverbController < ApplicationController
-  MAX_DEPTH = 10
+  MAX_DEPTH = 3
 
 	def index
 	end
@@ -7,7 +7,7 @@ class ReverbController < ApplicationController
 
 	def artist
 		artist = Artist.find_by(name: params[:artist_name])
-    artist ||= find_similar_artist(params[:artist_name])
+    artist ||= find_similar_artist(params[:artist_name]) if params[:similar].try(:downcase) == 'true'
 		if artist.nil?
 			return render json: []
 		else

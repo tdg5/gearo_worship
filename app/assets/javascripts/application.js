@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery_ujs
-//= require turbolinks
 //= require mustache.min
 //= require templates
 //= require_tree .

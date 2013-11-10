@@ -89,3 +89,7 @@ ul {
 	font-weight: bold;
 	color: orange;
 }
+
+.alert {
+  text-align: center;
+}

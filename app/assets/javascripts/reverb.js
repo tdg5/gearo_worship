@@ -2,6 +2,7 @@ $(function() {
 
 	var $result_list = $('.Results'),
 		$search_bar = $('.Header-input'),
+    $alert = $('.alert'),
 		$spinner = $('.AjaxLoader'),
 		request_id;
 
@@ -21,20 +22,32 @@ $(function() {
 		$result_list.append(result_elements.join('\n'));
 	}
 
-	var request_by_name = function(name) {
+	var request_by_name = function(name, use_similar) {
+    use_similar = use_similar || false;
 		$result_list.empty();
+    $alert.hide();
 		$spinner.show();
 		$spinner.css('display', 'block');
-		$.get('/reverb/artist/' + name, function(data){
+    similar = use_similar ? '?similar=true' : '';
+		$.get('/reverb/artist/' + name + similar, function(data){
 			if(data.length == 0) {
 				$spinner.hide();
-				alert('no instruments for that artist :/');
+        if (use_similar) {
+          $alert.html("Couldn't find instruments for artists similar to " + $search_bar.val() + ". Sorry :(");
+        } else {
+          similar_link = $('<a href="#">similar artists</a>');
+          similar_link.click(function() { request_by_name($search_bar.val(), true); });
+          $alert.html("Couldn't find instruments for " + $search_bar.val() + ". Try ");
+          $alert.append(similar_link);
+        }
+        $alert.show();
 			} else {
 				ajax_pester(
 					'/reverb/request/' + data, 200,
 					 display_reverb_crap,
 					function() {
-						alert('nothing for sale :/');
+            $alert.html("No instruments currently on sale for" + $search_bar.val() + ".");
+            $alert.show();
 						$spinner.hide();
 					}
 				);
