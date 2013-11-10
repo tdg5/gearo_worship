@@ -1,6 +1,6 @@
 GearoWorship::Application.routes.draw do
 
-	root :to => 'home#index'
+	root :to => 'reverb#index'
 
 	get '/instruments', :to => 'instrument#index'
 	get '/instruments/:artist', :to => 'instrument#by_artist'
