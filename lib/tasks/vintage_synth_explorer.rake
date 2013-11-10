@@ -51,7 +51,7 @@ task :import_vintage_synth_explorer_data_set => :environment do
 			synth_attrs[:artists].each do |artist|
 				artist = Artist.find_or_initialize_by(name: artist.to_s.downcase)
 				next unless artist.save
-				mapping = ArtistInstrument.find_or_initialize_by(artist_id: artist.id, instrument_id: instrument.id, source_id: source.id)
+				mapping = ArtistsInstruments.find_or_initialize_by(artist_id: artist.id, instrument_id: instrument.id, source_id: source.id)
 				mapping.save
 			end
 		end
