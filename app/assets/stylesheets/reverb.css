@@ -61,6 +61,8 @@ ul {
 	margin: .5em;
 	border-radius: 5px;
 	vertical-align: text-top;
+	text-decoration: none;
+	color: #444;
 }
 
 .listing-image {
