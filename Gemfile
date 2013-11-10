@@ -7,6 +7,7 @@ gem 'nokogiri'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'faraday'
+gem 'active_model_serializers'
 
 group :assets do
   gem 'therubyracer', platforms: :ruby

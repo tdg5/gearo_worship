@@ -28,7 +28,8 @@ module Reverb
 			rec.completed = true
 			rec.save
 		end
-		response_json = JSON.generate(JSON.parse(response.body)['listings'])
+		result = JSON.parse(response.body)['listings']
+    response_json = result.empty? ? nil : JSON.generate(result)
 		ReverbResponse.create!(:request_id => request_id, :response => response_json, :instrument_id => instrument.id)
 	end
 

@@ -8,22 +8,17 @@ $(function() {
 	var display_reverb_crap = function(data) {
 		var $result_list = $('.Results'),
 			result_elements = [];
-		
+
 		console.log(data);
 		$spinner.hide();
 
 		$result_list.empty();
-		for(var i = data.length - 1; i>=0; i--) {
-			var key;
-			for (var k in data[i]) {
-			    key = k;
-			}
-			var item = data[i][k][0];
-			if(!item){ continue };
-			var desc = item['description'];
-			if(!desc){ continue };
-			result_elements.push('<ul>' + desc + '</ul>');
-		}
+    for (var i = 0; i < data.length; i++) {
+      var instrument = data[i];
+      instrument['listing'] = Mustache.render(Templates['Reverb::Listing'], instrument['listings'][0])
+      instrument_markup = Mustache.render(Templates['Reverb::Instrument'], instrument);
+      result_elements.push('<li>' + instrument_markup + '</li>');
+    }
 		$result_list.append(result_elements.join('\n'));
 	}
 

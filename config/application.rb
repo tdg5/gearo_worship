@@ -12,6 +12,7 @@ module GearoWorship
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 	config.autoload_paths += %W(#{config.root}/lib)
+	config.autoload_paths += %W(#{config.root}/app/serializers)
 	config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.

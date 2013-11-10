@@ -1,0 +1,18 @@
+<%
+  views_path = Rails.root.join('app', 'views')
+  template_extension = '.mustache'
+
+  template_pairs = Dir[views_path.join('**', "*#{template_extension}")].map do |template|
+    template_action = File.basename(template, template_extension)
+    template_name_components = File.dirname(template).sub(views_path.to_s, '').split('/').keep_if(&:present?)
+    template_class = template_name_components.push(template_action).map(&:titleize).join('::')
+
+    template = File.open(template, 'r') { |file| file.read }
+    [template_class, template.strip]
+  end
+
+  templates = Hash[template_pairs].to_json
+%>
+// Ahh Templates generated at <%= Time.now %>
+
+var Templates = <%= templates %>;

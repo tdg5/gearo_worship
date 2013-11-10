@@ -12,6 +12,8 @@
 //
 //= require jquery_ujs
 //= require turbolinks
+//= require mustache.min
+//= require templates
 //= require_tree .
 
 var ajax_pester = function(url, retries, success, failure) {

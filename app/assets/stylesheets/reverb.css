@@ -5,6 +5,11 @@ body {
 	background-color: #f1f1eb;
 }
 
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
 .AjaxLoader {
 	margin-top: 2em !important;
 }
@@ -47,3 +52,23 @@ body {
 	max-width: 1000px;
 	padding: 0 1em;
 }
+
+
+.listing {
+  overflow: hidden;
+}
+
+.listing-image {
+  float: left;
+  width: 49%;
+}
+
+.listing-image img {
+  width: 100%;
+}
+
+.listing-data {
+  float: right;
+  width: 49%;
+}
+
