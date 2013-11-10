@@ -1,15 +1,20 @@
 $(function() {
 
 	var $search_bar = $('.Header-input'),
+		$spinner = $('.AjaxLoader'),
 		request_id;
+
+
+	var display_reverb_crab = function(name) {
+	}
 
 	var request_by_name = function(name) {
 		$.get('/reverb/artist/' + name, function(data){
-			if(data.length) {
-				request_id = data;
-				alert(request_id);
+			if(data == null) {
+				alert('no instruments for that artist :/');
 			} else {
-				 alert('no instruments for that artist :/');
+				$spinner.show();
+				ajax_pester('/reverb/request/' + data, 20, display_reverb_crap);
 			}
 		});
 	};
@@ -24,11 +29,11 @@ $(function() {
 		$instrument_list.append(instruments.join('\n'));
 	}
 
-	$searh_bar.keypress(function(e) {
+	$search_bar.keypress(function(e) {
 		var code = (e.keyCode ? e.keyCode : e.which);
 		if(code == 13) {
 			e.preventDefault();
-			request_by_name($(this).val());
+			request_by_name($search_bar.val());
 		}
 	});
 });
