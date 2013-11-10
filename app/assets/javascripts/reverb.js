@@ -34,7 +34,7 @@ $(function() {
 			} else {
 				$spinner.show();
 				$spinner.css('display', 'block');
-				ajax_pester('/reverb/request/' + data, 20, display_reverb_crap);
+				ajax_pester('/reverb/request/' + data, 200, display_reverb_crap);
 			}
 		});
 	};
