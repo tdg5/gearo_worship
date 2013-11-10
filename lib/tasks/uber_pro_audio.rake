@@ -10,6 +10,7 @@ GEARS_REGEX = /- (.+?)(?:<(?:br|\/p)>)/
 TMP_FILE = Rails.root.join('config', 'uberproaudio.json')
 SOURCE_NAME = 'UberProAudio'
 
+desc 'Retrieve UberProAudio JSON'
 task :retrieve_uber_pro_audio_json do
   doc = Nokogiri::HTML(open(WHO_PLAYS_WHAT))
   artist_urls = doc.css('.list-title a[href]').map do |href|
@@ -39,6 +40,7 @@ task :retrieve_uber_pro_audio_json do
   end
 end
 
+desc 'Import UberProAudio JSON'
 task :import_json => :environment do
   data = nil
   File.open(TMP_FILE, 'r') do |json|
