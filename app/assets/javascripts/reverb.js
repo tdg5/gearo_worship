@@ -46,7 +46,7 @@ $(function() {
 					'/reverb/request/' + data, 200,
 					 display_reverb_crap,
 					function() {
-            $alert.html("No instruments currently on sale for" + $search_bar.val() + ".");
+            $alert.html("No instruments currently on sale for " + $search_bar.val() + ".");
             $alert.show();
 						$spinner.hide();
 					}
