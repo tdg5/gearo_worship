@@ -10,6 +10,8 @@ class ReverbResponseSerializer < ActiveModel::Serializer
       listing['description_preview'] = description_preview(listing['description'])
       photo = photo_url(listing)
       listing['photo_url'] = photo if photo.present?
+      url = listing['_links']['web']['href']
+      listing['url'] = url if url.present?
       listing
     end
     prices = price_range(listings)
