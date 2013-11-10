@@ -1,3 +1,1 @@
 ECHO_NEST_API_KEY = ''
-
-require 'echonest-ruby-api'
