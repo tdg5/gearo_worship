@@ -17,8 +17,8 @@ class ReverbController < ApplicationController
 
 
 	def reverb_request
-		good_enough = 15
-		so_far = ReverbRequestInstrument.where(:request_id => params[:reverb_request_id], :completed => true)
+		good_enough = 12
+		so_far = ReverbRequestInstrument.joins(:reverb_response).where(:request_id => params[:reverb_request_id], :completed => true).where('reverb_responses.response is not null')
 		still_to_come = ReverbRequestInstrument.where(:request_id => params[:reverb_request_id], :completed => false)
 		lets_show_it = so_far.count >= good_enough || still_to_come.count == 0
 		if lets_show_it
