@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109203251) do
-
-  create_table "artist_instrument", force: true do |t|
-    t.integer "artist_id"
-    t.integer "instrument_id"
-    t.integer "source_id"
-  end
+ActiveRecord::Schema.define(version: 20131110011940) do
 
   create_table "artists", force: true do |t|
     t.string "name"
+  end
+
+  create_table "artists_instruments", force: true do |t|
+    t.integer "artist_id"
+    t.integer "instrument_id"
+    t.integer "source_id"
   end
 
   create_table "instruments", force: true do |t|
