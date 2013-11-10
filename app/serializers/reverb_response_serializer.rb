@@ -12,6 +12,7 @@ class ReverbResponseSerializer < ActiveModel::Serializer
       listing['photo_url'] = photo if photo.present?
       url = listing['_links']['web']['href']
       listing['url'] = url if url.present?
+	listing['price_fmt'] = [listing['price']['symbol'], listing['price']['amount']].join
       listing
     end
     prices = price_range(listings)
@@ -31,7 +32,7 @@ class ReverbResponseSerializer < ActiveModel::Serializer
 
   def photo_url(listing)
     first_photo = listing['photos'][0]
-    return first_photo.present? ? first_photo['_links']['large_crop']['href'] : nil
+    return first_photo.present? ? first_photo['_links']['small_crop']['href'] : nil
   end
 
 

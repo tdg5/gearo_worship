@@ -19,6 +19,7 @@ ul {
 	background-color: purple;
 	border-bottom: .75em solid white;
 	box-shadow: 0px 0px 5px #888888;
+	margin-bottom: .5em;
 }
 
 .Header-logo {
@@ -55,20 +56,33 @@ ul {
 
 
 .listing {
-  overflow: hidden;
+	width: 226px;
+	display: inline-block;
+	margin: .5em;
+	border-radius: 5px;
+	vertical-align: text-top;
 }
 
 .listing-image {
-  float: left;
-  width: 49%;
+	width: 226px;
+	height: 226px;
+	margin: 0;
 }
 
 .listing-image img {
-  width: 100%;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	width: 100%;
 }
 
 .listing-data {
-  float: right;
-  width: 49%;
+	background-color: white;
+	padding: .5em;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
+.listing-data-price {
+	font-weight: bold;
+	font-color: orange;
+}
