@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110033702) do
+ActiveRecord::Schema.define(version: 20131110054522) do
 
   create_table "artists", force: true do |t|
     t.string "name"
@@ -27,11 +27,26 @@ ActiveRecord::Schema.define(version: 20131110033702) do
     t.string "name"
   end
 
+  create_table "reverb_request_instruments", force: true do |t|
+    t.integer  "request_id"
+    t.integer  "instrument_id"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reverb_requests", force: true do |t|
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reverb_responses", force: true do |t|
     t.integer  "request_id"
     t.text     "response"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "instrument_id"
   end
 
   create_table "sources", force: true do |t|
