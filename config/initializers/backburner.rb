@@ -1,3 +1,4 @@
+Backburner::Workers::ThreadsOnFork.threads_number = 15
 Backburner.configure do |config|
   config.beanstalk_url    = ["beanstalk://127.0.0.1"]
   config.tube_namespace   = "gearo_worship"
@@ -8,6 +9,6 @@ Backburner.configure do |config|
   config.respond_timeout  = 120
   config.default_worker   = Backburner::Workers::ThreadsOnFork
   config.logger           = Logger.new(STDOUT)
-  config.primary_queue    = "backburner-jobs"
+  config.primary_queue    = "reverb_requests"
   config.priority_labels  = { :custom => 50, :useless => 1000 }
 end
