@@ -12,7 +12,10 @@ class ReverbResponseSerializer < ActiveModel::Serializer
       listing['photo_url'] = photo if photo.present?
       url = listing['_links']['web']['href']
       listing['url'] = url if url.present?
-	listing['price_fmt'] = [listing['price']['symbol'], listing['price']['amount']].join
+      want_url = listing['_links']['want']['href']
+      listing['want_url'] = want_url if want_url.present?
+      unwant_url = listing['_links']['unwant']['href']
+      listing['unwant_url'] = unwant_url if unwant_url.present?
       listing
     end
     prices = price_range(listings)
