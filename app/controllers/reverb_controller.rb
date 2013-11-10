@@ -17,14 +17,20 @@ class ReverbController < ApplicationController
 
 
 	def reverb_request
+		good_enough = 15
+		so_far = ReverbRequestInstrument.where(:request_id => params[:reverb_request_id], :completed => true)
 		still_to_come = ReverbRequestInstrument.where(:request_id => params[:reverb_request_id], :completed => false)
-		return render :json => [] if still_to_come.count > 0
-		reverb_responses = ReverbResponse.where(request_id: params[:reverb_request_id]).where('response is not null').includes(:instrument)
-		json = reverb_responses.map { |reverb_response| ReverbResponseSerializer.new(reverb_response).as_json }
-		if json == []
-			return render :json => json, :status => 404
+		lets_show_it = so_far.count >= good_enough || still_to_come.count == 0
+		if lets_show_it
+			reverb_responses = ReverbResponse.where(request_id: params[:reverb_request_id]).where('response is not null').includes(:instrument)
+			json = reverb_responses.map { |reverb_response| ReverbResponseSerializer.new(reverb_response).as_json }
+			if json == []
+				return render :json => json, :status => 404
+			end
+			return render :json => json
+		else
+			return render :json => []
 		end
-		render :json => json
 	end
 
   private
