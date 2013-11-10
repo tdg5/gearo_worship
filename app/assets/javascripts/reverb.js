@@ -18,7 +18,11 @@ $(function() {
 			for (var k in data[i]) {
 			    key = k;
 			}
-			result_elements.push('<ul>' + data[i][k][0]['description'] + '</ul>');
+			var item = data[i][k][0];
+			if(!item){ continue };
+			var desc = item['description'];
+			if(!desc){ continue };
+			result_elements.push('<ul>' + desc + '</ul>');
 		}
 		$result_list.append(result_elements.join('\n'));
 	}
