@@ -30,7 +30,11 @@ $(function() {
 				$spinner.hide();
 				alert('no instruments for that artist :/');
 			} else {
-				ajax_pester('/reverb/request/' + data, 200, display_reverb_crap);
+				ajax_pester(
+					'/reverb/request/' + data, 200,
+					 display_reverb_crap,
+					function() {alert('nothing for sale :/')}
+				);
 			}
 		});
 	};
