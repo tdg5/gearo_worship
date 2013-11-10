@@ -5,16 +5,22 @@ $(function() {
 		request_id;
 
 
-	var display_reverb_crab = function(name) {
+	var display_reverb_crap = function(data) {
+		$spinner.hide();
+		console.log(data);
 	}
 
 	var request_by_name = function(name) {
 		$.get('/reverb/artist/' + name, function(data){
-			if(data == null) {
+			if(data.length == 0) {
 				alert('no instruments for that artist :/');
 			} else {
 				$spinner.show();
-				ajax_pester('/reverb/request/' + data, 20, display_reverb_crap);
+				ajax_pester(
+					'/reverb/request/' + data,
+					200,
+					display_reverb_crap
+				);
 			}
 		});
 	};
