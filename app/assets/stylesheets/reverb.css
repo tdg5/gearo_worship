@@ -35,6 +35,10 @@ body {
 	margin: 0 auto;
 }
 
+.u-hidden {
+	display: none;
+}
+
 .u-width-wrapper {
 	max-width: 1000px;
 	padding: 0 1em;
