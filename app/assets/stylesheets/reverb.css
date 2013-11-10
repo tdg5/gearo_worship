@@ -10,6 +10,18 @@ ul {
   padding-left: 0;
 }
 
+.alert {
+	margin: 1em auto;
+	padding: .5em;
+	font-size: 2em;
+	color: #fff;
+	background-color: #aB5976;
+}
+
+.alert a {
+	color: #eef;
+}
+
 .AjaxLoader {
 	margin-top: 2em !important;
 }
@@ -87,7 +99,7 @@ ul {
 
 .listing-data-price {
 	font-weight: bold;
-	color: orange;
+	color: #E67E22;
 }
 
 .alert {
