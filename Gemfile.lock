@@ -55,6 +55,8 @@ GEM
     debugger-ruby_core_source (1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    faraday (0.8.8)
+      multipart-post (~> 1.2.0)
     hike (1.2.3)
     i18n (0.6.5)
     jquery-rails (3.0.4)
@@ -69,6 +71,7 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
+    multipart-post (1.2.0)
     mysql2 (0.3.14)
     nokogiri (1.5.10)
     polyglot (0.3.3)
@@ -138,6 +141,7 @@ PLATFORMS
 
 DEPENDENCIES
   backburner!
+  faraday
   jquery-rails
   mysql2
   nokogiri

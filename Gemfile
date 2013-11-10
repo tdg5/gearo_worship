@@ -6,6 +6,7 @@ gem 'backburner', :git => 'https://github.com/thcrock/backburner.git'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'faraday'
 
 group :assets do
   gem 'therubyracer', platforms: :ruby
