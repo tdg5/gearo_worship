@@ -6,7 +6,11 @@ module Reverb
 
 
 	def self.preprocess(keyword)
-		return keyword[/(.*?)\s?\(/, 1]
+		if keyword.include?('(')
+			return keyword[/(.*?)\s?\(/, 1]
+		else
+			return keyword
+		end
 	end
 
 
