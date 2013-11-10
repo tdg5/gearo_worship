@@ -14,4 +14,9 @@ class ReverbController < ApplicationController
 		end
 	end
 
+
+	def request
+		
+	end
+
 end
