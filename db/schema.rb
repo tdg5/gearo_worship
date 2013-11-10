@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110054522) do
+ActiveRecord::Schema.define(version: 20131110154017) do
 
   create_table "artists", force: true do |t|
     t.string "name"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20131110054522) do
 
   create_table "reverb_responses", force: true do |t|
     t.integer  "request_id"
-    t.text     "response"
+    t.text     "response",      limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "instrument_id"
