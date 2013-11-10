@@ -2,7 +2,7 @@ development:
   adapter: mysql2
   encoding: utf8
   database: gearo_worship_development
-  pool: 5
+  pool: 10
   username: root
   password:
   host: localhost
@@ -11,7 +11,7 @@ test:
   adapter: mysql2
   encoding: utf8
   database: gearo_worship_test
-  pool: 5
+  pool: 10
   username: root
   password:
   host: localhost
@@ -20,7 +20,7 @@ production:
   adapter: mysql2
   encoding: utf8
   database: gearo_worship_production
-  pool: 5
+  pool: 10
   username: root
   password:
   host: localhost

@@ -1,4 +1,4 @@
-Backburner::Workers::ThreadsOnFork.threads_number = 5
+Backburner::Workers::ThreadsOnFork.threads_number = 10
 Backburner.configure do |config|
   config.beanstalk_url    = ["beanstalk://127.0.0.1"]
   config.tube_namespace   = "gearo_worship"
