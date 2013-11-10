@@ -37,7 +37,7 @@ def crawl_all
 		artist = Artist.find_or_create_by(name: artist)
 		keywords.each { |keyword| 
 			instrument = Instrument.find_or_create_by(name: keyword)
-			ArtistsInstruments.find_or_create_by(source_id: source_id, instrument_id: instrument.id, artist_id: artist.id)
+			ArtistsInstruments.find_or_create_by(:source_id => source_id, :instrument_id => instrument.id, :artist_id => artist.id)
 		}
 	}
 end
