@@ -6,8 +6,8 @@ $(function() {
 
 
 	var display_reverb_crap = function(data) {
-		$spinner.hide();
 		console.log(data);
+		$spinner.hide();
 	}
 
 	var request_by_name = function(name) {
@@ -16,11 +16,7 @@ $(function() {
 				alert('no instruments for that artist :/');
 			} else {
 				$spinner.show();
-				ajax_pester(
-					'/reverb/request/' + data,
-					200,
-					display_reverb_crap
-				);
+				ajax_pester('/reverb/request/' + data, 20, display_reverb_crap);
 			}
 		});
 	};
