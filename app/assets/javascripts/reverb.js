@@ -33,7 +33,10 @@ $(function() {
 				ajax_pester(
 					'/reverb/request/' + data, 200,
 					 display_reverb_crap,
-					function() {alert('nothing for sale :/')}
+					function() {
+						alert('nothing for sale :/');
+						$spinner.hide();
+					}
 				);
 			}
 		});
